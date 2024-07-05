@@ -29,13 +29,13 @@ namespace Simple.Gameplay.Object {
         private float Width;
 
         public override void OnActive( float CurrentTime ) {
-            //实时更新形状
-            var points = new List<Vector2>(JudgmentLine.CurrentCurve.SubCurveByMidAndLength(position, Width));
-            for (int i = 0; i < points.Count; i++)
+            //实时更新形状,TODO:将此部分改为应用预制好的贴图
+            var points = new List<Vector2>(JudgmentLine.CurrentCurve.SubCurveByMidAndLength(position, Width));//用中点位置和长度确定Note[横线]每个点的位置
+            for (int i = 0; i < points.Count; i++)//将每一个点转换为绝对坐标（即：将被绘制的Note[横线]转化为绝对坐标）
                 points[i] = PositionHelper.RelativeCoordToAbsoluteCoord(points[i], Camera.main);
 
             Line.positionCount = points.Count;
-            Line.SetPositions(Functions.Vec2ListToVec3List(points).ToArray());
+            Line.SetPositions(Functions.Vec2ListToVec3List(points).ToArray());//绘制Note[横线]的形状
 
             //设置音符位置
             KeyValuePair<Vector2, Vector2> normal = JudgmentLine.CurrentCurve.GetNormal(position);
