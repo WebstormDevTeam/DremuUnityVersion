@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Simple.Gameplay.Tool;
+using Simple.Gameplay.Object;
+
+namespace Simple.Gameplay.Manager {
+    public sealed class JudgmentLineManager : MonoBehaviour {
+
+        [SerializeField] JudgmentLine _JudgmentLine;
+
+        private StandardObjectPool<JudgmentLine> JudgmentLinePool;
+        public static JudgmentLineManager Instance { get; private set; }
+
+        readonly List<JudgmentLine> ActiveLines = new List<JudgmentLine>();
+
+        public static Color JudgmentLineColor { get; private set; }
+
+        private void Awake() {
+            Instance = this;
+
+            JudgmentLinePool = new StandardObjectPool<JudgmentLine>(_JudgmentLine, 4);
+            JudgmentLineColor = Color.black;
+        }
+
+        /// <summary>
+        /// 获取一条判定线
+        /// </summary>
+        /// <param name="InitialCurve">初始曲线</param>
+        /// <param name="SpeedGroup">流速组</param>
+        /// <returns></returns>
+        public static JudgmentLine GetNewJudgmentLine(Curve InitialCurve, EnvelopeLine SpeedGroup, EnvelopeLine AlphaGroup, float NoteWidth) {
+            JudgmentLine line = Instance.JudgmentLinePool.GetObject();
+            line.SetCurvesAndEnvelope(
+                new List<Curve> { InitialCurve },
+                new EnvelopeLine(
+                    new List<ControlNode> {
+                        new ControlNode(
+                            0,0,1,CurveType.Sine
+                        )
+                    }
+                ));
+            line.SetSpeedGroup(SpeedGroup);
+            line.SetAlphaGroup(AlphaGroup);
+            line.SetNoteWidth(NoteWidth);
+            Instance.ActiveLines.Add(line);
+            return line;
+        }
+
+        public static void ReturnJudgmentLine(JudgmentLine JudgmentLine ) {
+            Instance.JudgmentLinePool.ReturnObject(JudgmentLine);
+        }
+
+
+        public static void UpdateJudgmentLineState(float CurrentTime) {
+            foreach (var line in Instance.ActiveLines) {
+                line.OnActive(CurrentTime);
+            }
+        }
+
+    }
+}
