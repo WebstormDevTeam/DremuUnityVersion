@@ -83,6 +83,3 @@ Saved/
 *.gz
 *.DS_Store
 Thumbs.db
-/Assets/Plugins/Sirenix/(name_conflict)_Demos.meta
-/Assets/Plugins/Sirenix/Demos.meta
-/Assets/Images/Editor.meta
