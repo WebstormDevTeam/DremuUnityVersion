@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
-namespace Simple.ChartEdit
+namespace Dremu.ChartEdit
 {
 
     public class EditPanel : MonoBehaviour

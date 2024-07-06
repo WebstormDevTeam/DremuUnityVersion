@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Simple.Gameplay.Manager {
+namespace Dremu.Gameplay.Manager {
 
     public class AudioManager : MonoBehaviour {
 

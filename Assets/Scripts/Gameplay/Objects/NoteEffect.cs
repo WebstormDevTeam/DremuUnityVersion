@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils.Helper;
-using Simple.Gameplay.Tool;
 using System.Diagnostics;
+using Dremu.Gameplay.Tool;
 
-namespace Simple.Gameplay.Object {
+namespace Dremu.Gameplay.Object {
 
     public class NoteEffect : MonoBehaviour, RecyclableObject {
 

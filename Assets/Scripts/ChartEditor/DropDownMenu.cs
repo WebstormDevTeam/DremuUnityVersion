@@ -6,7 +6,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
 
-namespace Simple.ChartEdit
+namespace Dremu.ChartEdit
 {
 
     public class DropDownMenu : MonoBehaviour

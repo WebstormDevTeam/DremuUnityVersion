@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Simple.Gameplay.Tool;
 using UnityEngine;
 using System;
+using Dremu.Gameplay.Tool;
 using Sirenix.OdinInspector;
 
-namespace Simple.Gameplay.Object {
+namespace Dremu.Gameplay.Object {
 
     /// <summary>
     /// 谱面

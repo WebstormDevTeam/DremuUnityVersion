@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Simple.Gameplay.Tool;
 using UnityEngine.Events;
-namespace Simple.ChartEdit.Envelope
+namespace Dremu.ChartEdit.Envelope
 {
     /// <summary>
     /// 一条用来编辑一个包络线的轨道.

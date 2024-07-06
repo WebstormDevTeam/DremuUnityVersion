@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Simple.ChartEdit.Envelope
+namespace Dremu.ChartEdit.Envelope
 {
     public class SnipHelper
     {

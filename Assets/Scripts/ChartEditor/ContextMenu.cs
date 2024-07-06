@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Simple.ChartEdit
+namespace Dremu.ChartEdit
 {
     public class ContextMenu : MonoBehaviour
     {

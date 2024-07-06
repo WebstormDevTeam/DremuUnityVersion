@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Dremu.Gameplay.Manager;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
-using Simple.Gameplay.Tool;
 using Utils.Helper;
-using Simple.Gameplay.Manager;
 
-namespace Simple.Gameplay.Object {
+namespace Dremu.Gameplay.Object {
     public class JudgmentLine : MonoBehaviour, RecyclableObject {
 
         [SerializeField] LineRenderer line;

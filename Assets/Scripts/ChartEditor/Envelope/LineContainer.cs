@@ -2,10 +2,10 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Simple.Gameplay.Tool;
 using System.Linq;
+using Dremu.Gameplay.Tool;
 
-namespace Simple.ChartEdit.Envelope
+namespace Dremu.ChartEdit.Envelope
 {
 
     /// <summary>

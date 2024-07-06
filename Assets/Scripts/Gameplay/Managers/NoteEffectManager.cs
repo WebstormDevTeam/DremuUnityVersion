@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Dremu.Gameplay.Object;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
-using Simple.Gameplay.Tool;
-using Simple.Gameplay.Object;
 
-namespace Simple.Gameplay.Manager {
+namespace Dremu.Gameplay.Manager {
     public class NoteEffectManager : MonoBehaviour {
 
         [SerializeField] NoteEffect _NoteEffect;

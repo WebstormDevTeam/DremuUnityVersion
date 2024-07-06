@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI.Extensions;
 
-namespace Simple.ChartEdit.Envelope
+namespace Dremu.ChartEdit.Envelope
 {
     [RequireComponent(typeof(UILineRenderer))]
     public class UILine: MonoBehaviour

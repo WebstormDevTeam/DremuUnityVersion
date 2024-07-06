@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Simple.Gameplay.Tool;
 
-namespace Simple.ChartEdit.Envelope
+namespace Dremu.ChartEdit.Envelope
 {
     public interface IDragEdit
     {

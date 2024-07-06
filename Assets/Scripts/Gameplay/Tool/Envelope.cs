@@ -5,7 +5,7 @@ using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Simple.Gameplay.Tool
+namespace Dremu.Gameplay.Tool
 {
     public sealed class EnvelopeLine
     {

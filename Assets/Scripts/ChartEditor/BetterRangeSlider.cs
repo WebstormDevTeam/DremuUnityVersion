@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI.Extensions;
 using UnityEngine.EventSystems;
 
-namespace Simple.ChartEdit
+namespace Dremu.ChartEdit
 {
     /// <summary>
     /// 原先的slider总把中心移到鼠标位置

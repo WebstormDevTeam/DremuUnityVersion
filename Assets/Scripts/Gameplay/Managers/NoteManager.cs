@@ -5,12 +5,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Simple.Gameplay.Tool;
-using Simple.Gameplay.Object;
 using Assets.Scripts.Gameplay.Tool;
 using System;
+using Dremu.Gameplay.Object;
+using Dremu.Gameplay.Tool;
 
-namespace Simple.Gameplay.Manager {
+namespace Dremu.Gameplay.Manager {
     public class NoteManager : MonoBehaviour {
 
         [SerializeField] Tap _Tap;

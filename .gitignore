@@ -1,85 +1,14 @@
-# =============== #
-# Unity generated #
-# =============== #
-Temp/
-Library/
-obj/
-
-# ============================================= #
-# Builds output (including specific platforms)     #
-# ============================================= #
-Builds/
-*.apk
-*.unitypackage
-*.app
-*.ipa
-
-# ============== #
-# Editor prefs   #
-# ============== #
-# UserSettings.asset
-
-# ================== #
-# Visual Studio      #
-# ================== #
-ExportedObj/
-*.svd
-*.userprefs
-[Bb]in/
+# Unity Project .gitignore
+[Ll]ibrary/
 [Oo]bj/
-[Tt]est[Rr]esult*/
-[Tt]est/[Rr]unner/
-*.swp
-*.~
-*.log
-*.lock
-*.sln
-*.suo
-*.user
-*.pidb
-*.mpb
-*.mdb
-*.tlb
-*.tib
-*.ncb
-*.pdb
-*.iobj
-*.ipdb
-*.xml
-
-# ============ #
-# MonoDevelop #
-# ============ #
-*.userprefs
-
-# ============= #
-# Rider          #
-# ============= #
-.idea/
-*.sln
-*.idea
-*.iws
-
-# ================ #
-# Unreal Engine    #
-# ================ #
-DerivedDataCache/
-Intermediate/
-Saved/
-*.sln
-*.vcxproj
-*.opensdf
-*.usda
-
-# ============== #
-# Other           #
-# ============== #
-*.meta
-*.bak
-*.tmp
-*~
-.*.swp
-*.log
-*.gz
-*.DS_Store
-Thumbs.db
+[Tt]emp/
+[Bb]uild/
+/*.sln
+/*.csproj
+/*.meta
+/*.apk
+/*.unitypackage
+/sysinfo.txt
+/TextMesh Pro/
+/.gradle/
+/.vs/

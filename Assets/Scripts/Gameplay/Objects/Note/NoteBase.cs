@@ -1,7 +1,7 @@
-using Simple.Gameplay.Tool;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
 
-namespace Simple.Gameplay.Object {
+namespace Dremu.Gameplay.Object {
     public abstract class NoteBase : MonoBehaviour, RecyclableObject {
 
         public float ArrivalTime;

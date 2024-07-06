@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Dremu.Gameplay.Object;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
-using Simple.Gameplay.Tool;
-using Simple.Gameplay.Object;
 
-namespace Simple.Gameplay.Manager
+namespace Dremu.Gameplay.Manager
 {
     using Node = Hold.HoldNode;
     using Node1 = Drag.DragNode;

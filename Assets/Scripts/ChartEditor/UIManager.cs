@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Dremu.ChartEdit.Envelope;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Simple.Gameplay.Tool;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Simple.ChartEdit.Envelope;
 
-namespace Simple.ChartEdit
+namespace Dremu.ChartEdit
 {
 
     public class UIManager : Utils.Singleton.MonoBehaviourSingleton<UIManager>

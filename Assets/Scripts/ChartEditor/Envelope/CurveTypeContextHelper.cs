@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Dremu.Gameplay.Tool;
 using UnityEngine.Events;
 
 using Sirenix.OdinInspector;
-using Simple.Gameplay.Tool;
-namespace Simple.ChartEdit.Envelope
+
+namespace Dremu.ChartEdit.Envelope
 {
     public static class CurveTypeContextHelper
     {

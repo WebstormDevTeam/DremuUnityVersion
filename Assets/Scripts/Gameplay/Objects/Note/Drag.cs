@@ -1,12 +1,12 @@
-using Simple.Gameplay.Manager;
-using Simple.Gameplay.Object;
-using Simple.Gameplay.Tool;
+using Dremu.Gameplay.Object;
 using System.Collections;
 using System.Collections.Generic;
+using Dremu.Gameplay.Manager;
+using Dremu.Gameplay.Tool;
 using UnityEngine;
 
 
-namespace Simple.Gameplay.Object {
+namespace Dremu.Gameplay.Object {
 
     public sealed class Drag : NoteBase {
         [SerializeField] LineRenderer Line;

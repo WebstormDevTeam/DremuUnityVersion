@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Net;
 using System;
 
-namespace Simple.Network.LinkPlay
+namespace Dremu.Network.LinkPlay
 {
     public class Server
     {
