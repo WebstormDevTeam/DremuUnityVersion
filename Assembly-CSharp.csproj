@@ -252,6 +252,7 @@
      <Folder Include="Library/PackageCache/com.unity.modules.physics2d@1.0.0" />
      <Folder Include="Assets/Scripts/GameUI/Setting" />
      <Folder Include="Library/PackageCache/com.unity.2d.common@8.0.1/Path" />
+     <None Include="Assets/docfx.json" />
      <None Include="Library/PackageCache/com.unity.modules.particlesystem@1.0.0/package.json" />
      <Folder Include="Assets/Scripts/Gameplay" />
      <Folder Include="Assets/GameUI/Global" />

@@ -158,7 +158,7 @@ namespace Dremu.Gameplay.Tool
         /// 当存储数据为bpm时, 获取秒数时间
         /// 此时线中数据的time都以秒为单位
         /// </summary>
-
+        /// <param name="Beat">节拍数</param>
         public float GetBeatFromSecond(float second)
         {
             float fullBeatUpToNow = 0;
