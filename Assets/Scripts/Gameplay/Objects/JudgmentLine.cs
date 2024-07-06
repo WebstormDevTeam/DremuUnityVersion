@@ -9,28 +9,53 @@ namespace Dremu.Gameplay.Object {
     public class JudgmentLine : MonoBehaviour, RecyclableObject {
 
         [SerializeField] LineRenderer line;
-
-
+        
+        /// <summary>
+        /// 当前曲线
+        /// </summary>
         public Curve CurrentCurve { get; private set; }
-
+        /// <summary>
+        /// 曲线列表
+        /// </summary>
         public List<Curve> Curves { get; private set; }
+        /// <summary>
+        /// 曲线控制组
+        /// </summary>
         public EnvelopeLine CurveControler {get; private set; }
+        /// <summary>
+        /// 流速控制组
+        /// </summary>
         public EnvelopeLine Speed { get; private set; }
+        /// <summary>
+        /// 透明度控制组
+        /// </summary>
         public EnvelopeLine Alpha { get; private set; }
-
+        /// <summary>
+        /// 判定线上音符列表
+        /// </summary>
         public List<NoteBase> Notes = new List<NoteBase>();
+        /// <summary>
+        /// 判定线上音符的宽度
+        /// </summary>
         public float NoteWidth { get; private set; }
 
-
+        /// <summary>
+        /// 初始化
+        /// </summary>
         public void OnInitialize() {
             line.positionCount = 0;
             CurrentCurve = null;
         }
-
+        /// <summary>
+        /// 回收
+        /// </summary>
         public void OnRecycle() {
             Notes.Clear();
         }
-
+        /// <summary>
+        /// 添加音符
+        /// </summary>
+        /// <param name="Note">Note</param>
         public void AddNote( NoteBase Note ) {
             Note.Bind(this);
             Notes.Add(Note);
@@ -65,7 +90,11 @@ namespace Dremu.Gameplay.Object {
             CurrentCurve = curves[0];
         }
 
-
+        /// <summary>
+        /// 更新曲线
+        /// </summary>
+        /// <param name="CurrentTime">当前时间</param>
+        /// <exception cref="Exception">曲线控制组为空</exception>
         private void UpdateCurve(float CurrentTime)
         {
             int curveIndex = EnvelopeLine.GetControlerIndex(CurveControler.Controllers, CurrentTime);
