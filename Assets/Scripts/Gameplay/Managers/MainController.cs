@@ -26,19 +26,20 @@ namespace Dremu.Gameplay.Manager
             get => Instance.BPMLine;
         }
 
-        #region test
-
+        // #region test
+        
+        
         Curve curve1 = new Curve(
                 new List<Vector2>()
                 {
-                    new Vector2(-0.8f, -0.5f),
-                    new Vector2(0.8f, -0.5f)
+                    new Vector2(0.8f, 0.0f),
+                    new Vector2(-0.8f, 0.0f)
                 },
                 new List<List<Vector2>>
                 {
                     new List<Vector2>
                     {
-                        new Vector2(0f, -1f)
+                        new Vector2(0f, 0f)
                     }
                 }
             ),
@@ -195,7 +196,7 @@ namespace Dremu.Gameplay.Manager
             #endregion
         }
 
-        #endregion
+        // #endregion
 
         [SerializeField] float bpm;
 

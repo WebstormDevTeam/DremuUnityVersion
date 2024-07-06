@@ -28,7 +28,9 @@ namespace Dremu.Gameplay.Manager {
         /// </summary>
         /// <param name="InitialCurve">初始曲线</param>
         /// <param name="SpeedGroup">流速组</param>
-        /// <returns></returns>
+        /// <param name="AlphaGroup">透明度组</param>
+        /// <param name="NoteWidth">音符宽度</param>
+        /// <returns>一条判定线</returns>
         public static JudgmentLine GetNewJudgmentLine(Curve InitialCurve, EnvelopeLine SpeedGroup, EnvelopeLine AlphaGroup, float NoteWidth) {
             JudgmentLine line = Instance.JudgmentLinePool.GetObject();
             line.SetCurvesAndEnvelope(
