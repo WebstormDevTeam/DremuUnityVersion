@@ -27,7 +27,10 @@ namespace Dremu.Gameplay.Object {
 
 
         private float Width;
-
+        /// <summary>
+        /// 初始化Note
+        /// </summary>
+        /// <param name="CurrentTime">当前时间</param>
         public override void OnActive( float CurrentTime ) {
             //实时更新形状,TODO:将此部分改为应用预制好的贴图
             // var points = new List<Vector2>(JudgmentLine.CurrentCurve.SubCurveByMidAndLength(position, Width));//用中点位置和长度确定Note[横线]每个点的位置

@@ -1,7 +1,14 @@
+///////////////////////DebugCode///////////////////////
 #if UNITY_EDITOR
 #define AUTOPLAY
 #endif
 
+#if DEBUG
+#define  AUTOPLAY
+#endif
+
+#define AUTOPLAY
+///////////////////////DebugCode///////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +18,9 @@ using Dremu.Gameplay.Object;
 using Dremu.Gameplay.Tool;
 
 namespace Dremu.Gameplay.Manager {
-    public class NoteManager : MonoBehaviour {
+    public class NoteManager : MonoBehaviour
+    {
+
 
         [SerializeField] Tap _Tap;
         [SerializeField] Slide _Slide;
@@ -41,6 +50,7 @@ namespace Dremu.Gameplay.Manager {
             DragPool = new StandardObjectPool<Drag>(_Drag, 2);
 
             NoteColor = Color.black;
+
         }
 
         /// <summary>

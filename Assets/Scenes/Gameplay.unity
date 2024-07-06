@@ -450,7 +450,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "SP.\uFF1F\uFF1F\uFF1F"
 --- !u!222 &543079230
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -780,8 +780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentTime: 10
-  bpm: 184
-  clip: {fileID: 8300000, guid: 71f2e2738411e2642935eb706af16a9b, type: 3}
+  bpm: 191
+  clip: {fileID: 8300000, guid: 4351895d54cc6404d90a967c480ee2fe, type: 3}
 --- !u!1 &1512135282
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +853,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u65AD\u6485"
+  m_Text: "\u5E7B\u6485"
 --- !u!222 &1512135285
 CanvasRenderer:
   m_ObjectHideFlags: 0
