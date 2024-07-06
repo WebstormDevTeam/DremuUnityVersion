@@ -3,6 +3,8 @@
 [Oo]bj/
 [Tt]emp/
 [Bb]uild/
+[Ll]ogs/
+.idea/
 /*.sln
 /*.csproj
 /*.meta
