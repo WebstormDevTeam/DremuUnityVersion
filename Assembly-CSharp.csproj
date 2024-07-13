@@ -242,6 +242,7 @@
      <Folder Include="Assets/TextMesh Pro/Examples &amp; Extras/Fonts" />
      <Folder Include="Assets/GameUI/Global/Prefabs" />
      <None Include="Library/PackageCache/com.unity.test-framework@1.1.33/package.json" />
+     <Folder Include="Assets/Resources/illimage" />
      <Folder Include="Assets/TextMesh Pro/Examples &amp; Extras/Resources" />
      <Folder Include="Library/PackageCache/com.unity.modules.unityanalytics@1.0.0" />
      <Folder Include="Library/PackageCache/com.unity.modules.physics@1.0.0" />

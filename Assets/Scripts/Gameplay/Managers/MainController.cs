@@ -32,8 +32,8 @@ namespace Dremu.Gameplay.Manager
         Curve curve1 = new Curve(
                 new List<Vector2>()
                 {
-                    new Vector2(0.8f, 0.0f),
-                    new Vector2(-0.8f, 0.0f)
+                    new Vector2(-0.8f, 0.0f),
+                    new Vector2(0.8f, 0.0f)
                 },
                 new List<List<Vector2>>
                 {
