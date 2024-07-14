@@ -40,7 +40,7 @@ namespace Dremu.ChartEdit
                 }
                 beginCursor -= clickRect.rect.position;
                 #region Copyed
-                //now we need to get the delta drag on the bar
+                //now we need to get the delta hold on the bar
                 //and move both the normalized low and high values by this amount
                 //but also check that neither is going beyond the bounds
                 if (NormalizedLowValue >= 0 && NormalizedHighValue <= 1)

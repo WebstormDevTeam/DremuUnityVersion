@@ -6,9 +6,6 @@ using UnityEngine;
 
 namespace Dremu.Gameplay.Manager
 {
-    using Node = Hold.HoldNode;
-    using Node1 = Drag.DragNode;
-
     public class MainController : MonoBehaviour
     {
         EnvelopeLine BPMLine = new EnvelopeLine(new List<ControlNode>()
@@ -104,93 +101,94 @@ namespace Dremu.Gameplay.Manager
 
             #region ??????
 
-            for (int i = 0; i < 16; i++)
-            {
-                NoteManager.GetNewTap(line, 0.2f, 15f + i * 2);
-                NoteManager.GetNewSlide(line, 0.4f, 15.5f + i * 2);
-                NoteManager.GetNewTap(line, 0.6f, 16f + i * 2);
-                NoteManager.GetNewSlide(line, 0.8f, 16.5f + i * 2);
-            }
+            // for (int i = 0; i < 16; i++)
+            // {
+            //     NoteManager.GetNewTap(line, 0.2f, 15f + i * 2);
+            //     NoteManager.GetNewSlide(line, 0.4f, 15.5f + i * 2);
+            //     NoteManager.GetNewTap(line, 0.6f, 16f + i * 2);
+            //     NoteManager.GetNewSlide(line, 0.8f, 16.5f + i * 2);
+            // }
 
             ///*
-            NoteManager.GetNewSlide(line, 0.75f, 17);
+            NoteManager.GetNewTap(line, 0.5f, 20f); 
+            NoteManager.GetNewSlide(line, 0.5f, 17);
 
             #endregion
 
             for (int i = 0; i < 13; i++)
             {
-                NoteManager.GetNewHold(line, 0.8f, 18 + i * 4, new List<Node>()
+                NoteManager.GetNewHold(line, 0.8f, 18 + i * 4, new List<GuideLine.GuideNode>()
                 {
-                    new Node(0.8f, 1.5f)
+                    new GuideLine.GuideNode(0.5f, 1.5f)
                 });
-                NoteManager.GetNewSlide(line, 0.8f, 19.5f + i * 4);
-                NoteManager.GetNewHold(line, 0.2f, 20 + i * 4, new List<Node>()
+                NoteManager.GetNewSlide(line, 0.5f, 19.5f + i * 4);
+                NoteManager.GetNewHold(line, 0.2f, 20 + i * 4, new List<GuideLine.GuideNode>()
                 {
-                    new Node(0.2f, 1.5f)
+                    new GuideLine.GuideNode(0.2f, 1.5f)
                 });
                 NoteManager.GetNewSlide(line, 0.2f, 21.5f + i * 4);
             }
 
-            NoteManager.GetNewHold(line, 0.5f, 17, new List<Node>()
+            NoteManager.GetNewHold(line, 0.5f, 17, new List<GuideLine.GuideNode>()
             {
-                new Node(0.7f, 1),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
-                new Node(0.7f, 2),
-                new Node(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 1),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
+                new GuideLine.GuideNode(0.7f, 2),
+                new GuideLine.GuideNode(0.3f, 2),
             });
 
             #region ???????????????????????
 
-            NoteManager.GetNewDrag(line, 0.5f, 17, new List<Node1>()
+            NoteManager.GetNewDrag(line, 0.5f, 17, new List<Hold.HoldNode>()
             {
-                new Node1(0.3f, 1),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
-                new Node1(0.3f, 2),
-                new Node1(0.7f, 2),
+                new Hold.HoldNode(0.3f, 1),
+                new Hold.HoldNode(0.4f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.4f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.5f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.2f, 2),
+                new Hold.HoldNode(0.8f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.9f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.5f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.7f, 2),
+                new Hold.HoldNode(0.3f, 2),
+                new Hold.HoldNode(0.7f, 2),
             });
 
             #endregion

@@ -48,12 +48,18 @@ namespace Dremu.Gameplay.Manager {
             Instance.ActiveLines.Add(line);
             return line;
         }
-
+        /// <summary>
+        /// 归还一条判定线
+        /// </summary>
+        /// <param name="JudgmentLine"> 判定线对象 </param>
         public static void ReturnJudgmentLine(JudgmentLine JudgmentLine ) {
             Instance.JudgmentLinePool.ReturnObject(JudgmentLine);
         }
 
-
+        /// <summary>
+        /// 更新判定线状态
+        /// </summary>
+        /// <param name="CurrentTime"> 当前时间 </param>
         public static void UpdateJudgmentLineState(float CurrentTime) {
             foreach (var line in Instance.ActiveLines) {
                 line.OnActive(CurrentTime);

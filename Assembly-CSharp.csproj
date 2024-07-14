@@ -66,7 +66,6 @@
      <Compile Include="Assets/Scripts/ChartEditor/BetterRangeSlider.cs" />
      <Compile Include="Assets/Scripts/Gameplay/Tool/ScoreManager.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
-     <Compile Include="Assets/Scripts/Gameplay/Objects/Note/Drag.cs" />
      <Compile Include="Assets/Scripts/ChartEditor/Envelope/LineContainer.cs" />
      <Compile Include="Assets/Scripts/Gameplay/Tool/PositionHelper.cs" />
      <Compile Include="Assets/Scripts/GameUI/Setting/SettingManager.cs" />
@@ -115,6 +114,7 @@
      <Compile Include="Assets/Scripts/Utils/Singleton/MonoBehaviourSingleton.cs" />
      <Compile Include="Assets/Scripts/Gameplay/Managers/NoteManager.cs" />
      <Compile Include="Assets/Scripts/ChartEditor/DropDownMenu.cs" />
+     <Compile Include="Assets/Scripts/Gameplay/Objects/Note/GuideLine.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" />
      <Compile Include="Assets/Scripts/ChartEditor/Envelope/SnipHelper.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" />

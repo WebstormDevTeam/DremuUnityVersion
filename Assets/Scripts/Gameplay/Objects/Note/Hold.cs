@@ -10,7 +10,6 @@ namespace Dremu.Gameplay.Object {
 
     public sealed class Hold : NoteBase {
         [SerializeField] LineRenderer Line;
-        [SerializeField] SpriteRenderer Renderer;
         [System.Serializable]
         public struct HoldNode {
             public float To, Time;
@@ -23,13 +22,12 @@ namespace Dremu.Gameplay.Object {
         List<HoldNode> HoldNodes;
         public float NoteEffectTimer;
 
-
         public override void OnActive( float CurrentTime ) {
             float position = this.position;
 
             //实时更新形状
             var points = new List<Vector2>();
-            float start = this.position;
+            float start = position;
             float time = ArrivalTime;
             Vector2 StartPoint = Vector2.zero;
             for (int i = 0; i < HoldNodes.Count; i++) {
@@ -80,11 +78,11 @@ namespace Dremu.Gameplay.Object {
                 PositionHelper.RelativeCoordToAbsoluteCoord(normal.Key, Camera.main) + 
                 (CurrentTime < ArrivalTime ? normal.Value * JudgmentLine.Speed.GetPosition(CurrentTime, ArrivalTime - CurrentTime) : Vector2.zero);
 
-            Renderer.color = Line.startColor = Line.endColor = NoteManager.NoteColor;
+            Line.startColor = Line.endColor = NoteManager.NoteColor;
         }
 
         public override void OnInitialize() {
-            NoteEffectTimer = 0;
+
         }
 
         public override void OnRecycle() {
@@ -92,11 +90,11 @@ namespace Dremu.Gameplay.Object {
         }
 
         /// <summary>
-        /// 设置hold的判定节点
+        /// 设置drag的判定节点
         /// </summary>
-        /// <param name="HoldNodes">判定节点</param>
-        public void SetHoldNodes(List<HoldNode> HoldNodes) {
-            this.HoldNodes = HoldNodes;
+        /// <param name="DragNodes">判定节点</param>
+        public void SetHoldNodes(List<HoldNode> DragNodes) {
+            this.HoldNodes = DragNodes;
         }
 
         /// <summary>

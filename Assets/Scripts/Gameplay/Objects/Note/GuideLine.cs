@@ -8,30 +8,36 @@ using UnityEngine;
 
 namespace Dremu.Gameplay.Object {
 
-    public sealed class Drag : NoteBase {
+    public sealed class GuideLine : NoteBase {
         [SerializeField] LineRenderer Line;
+        [SerializeField] SpriteRenderer Renderer;
+        
         [System.Serializable]
-        public struct DragNode {
+        public struct GuideNode {
             public float To, Time;
-            public DragNode( float To, float Time ) {
+            public GuideNode( float To, float Time ) {
                 this.To = To;
                 this.Time = Time;
             }
         }
 
-        List<DragNode> DragNodes;
+        List<GuideNode> GuideLineNodes;
         public float NoteEffectTimer;
 
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="CurrentTime"> 当前时间 </param>
         public override void OnActive( float CurrentTime ) {
             float position = this.position;
 
             //实时更新形状
             var points = new List<Vector2>();
-            float start = position;
+            float start = this.position;
             float time = ArrivalTime;
             Vector2 StartPoint = Vector2.zero;
-            for (int i = 0; i < DragNodes.Count; i++) {
-                DragNode Holding = DragNodes[i];
+            for (int i = 0; i < GuideLineNodes.Count; i++) {
+                GuideNode Holding = GuideLineNodes[i];
 
                 var pointsPerHolding = JudgmentLine.CurrentCurve.SubCurveByStartAndEnd(start, Holding.To);
                 float devide = 1f * (Holding.To - start) / pointsPerHolding.Count;
@@ -78,11 +84,11 @@ namespace Dremu.Gameplay.Object {
                 PositionHelper.RelativeCoordToAbsoluteCoord(normal.Key, Camera.main) + 
                 (CurrentTime < ArrivalTime ? normal.Value * JudgmentLine.Speed.GetPosition(CurrentTime, ArrivalTime - CurrentTime) : Vector2.zero);
 
-            Line.startColor = Line.endColor = NoteManager.NoteColor;
+            Renderer.color = Line.startColor = Line.endColor = NoteManager.NoteColor;
         }
 
         public override void OnInitialize() {
-
+            // NoteEffectTimer = 0;
         }
 
         public override void OnRecycle() {
@@ -90,11 +96,11 @@ namespace Dremu.Gameplay.Object {
         }
 
         /// <summary>
-        /// 设置drag的判定节点
+        /// 设置引导线节点
         /// </summary>
-        /// <param name="DragNodes">判定节点</param>
-        public void SetDragNodes(List<DragNode> DragNodes) {
-            this.DragNodes = DragNodes;
+        /// <param name="HoldNodes">节点</param>
+        public void SetGuideLineNodes(List<GuideNode> HoldNodes) {
+            this.GuideLineNodes = HoldNodes;
         }
 
         /// <summary>
@@ -104,7 +110,7 @@ namespace Dremu.Gameplay.Object {
         /// <returns>是否结束</returns>
         public bool IsEnd( float CurrentTime ) {
             float totalTime = ArrivalTime;
-            foreach (DragNode node in DragNodes)
+            foreach (GuideNode node in GuideLineNodes)
                 totalTime += node.Time;
             return CurrentTime >= totalTime;
         }

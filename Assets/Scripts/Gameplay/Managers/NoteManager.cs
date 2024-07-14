@@ -16,6 +16,7 @@ using Assets.Scripts.Gameplay.Tool;
 using System;
 using Dremu.Gameplay.Object;
 using Dremu.Gameplay.Tool;
+using UnityEngine.Serialization;
 
 namespace Dremu.Gameplay.Manager {
     public class NoteManager : MonoBehaviour
@@ -24,18 +25,18 @@ namespace Dremu.Gameplay.Manager {
 
         [SerializeField] Tap _Tap;
         [SerializeField] Slide _Slide;
-        [SerializeField] Hold _Hold;
-        [SerializeField] Drag _Drag;
+        [FormerlySerializedAs("_Hold")] [SerializeField] GuideLine guideLine;
+        [FormerlySerializedAs("_Drag")] [SerializeField] Hold hold;
 
         StandardObjectPool<Tap> TapPool;
         StandardObjectPool<Slide> SlidePool;
-        StandardObjectPool<Hold> HoldPool;
-        StandardObjectPool<Drag> DragPool;
+        StandardObjectPool<GuideLine> HoldPool;
+        StandardObjectPool<Hold> DragPool;
 
         readonly List<Tap> ActiveTaps = new List<Tap>();
         readonly List<Slide> ActiveSlides = new List<Slide>();
-        readonly List<Hold> ActiveHolds = new List<Hold>();
-        readonly List<Drag> ActiveDrags = new List<Drag>();
+        readonly List<GuideLine> ActiveHolds = new List<GuideLine>();
+        readonly List<Hold> ActiveDrags = new List<Hold>();
 
         public static Color NoteColor { get; private set; }
 
@@ -46,8 +47,8 @@ namespace Dremu.Gameplay.Manager {
 
             TapPool = new StandardObjectPool<Tap>(_Tap, 5);
             SlidePool = new StandardObjectPool<Slide>(_Slide, 10);
-            HoldPool = new StandardObjectPool<Hold>(_Hold, 1);
-            DragPool = new StandardObjectPool<Drag>(_Drag, 2);
+            HoldPool = new StandardObjectPool<GuideLine>(guideLine, 1);
+            DragPool = new StandardObjectPool<Hold>(hold, 2);
 
             NoteColor = Color.black;
 
@@ -96,14 +97,14 @@ namespace Dremu.Gameplay.Manager {
         /// <param name="ArrivalTime">到达时间</param>
         /// <param name="HoldNodes">判定节点</param>
         /// <returns></returns>
-        public static Hold GetNewHold( JudgmentLine JudgmentLine, float Position, float ArrivalTime, List<Hold.HoldNode> HoldNodes ) {
-            Hold hold = Instance.HoldPool.GetObject();
-            hold.SetArrivalTime(ArrivalTime);
-            hold.SetPosition(Position);
-            hold.SetHoldNodes(HoldNodes);
-            JudgmentLine.AddNote(hold);
-            Instance.ActiveHolds.Add(hold);
-            return hold;
+        public static GuideLine GetNewHold( JudgmentLine JudgmentLine, float Position, float ArrivalTime, List<GuideLine.GuideNode> HoldNodes ) {
+            GuideLine guideLine = Instance.HoldPool.GetObject();
+            guideLine.SetArrivalTime(ArrivalTime);
+            guideLine.SetPosition(Position);
+            guideLine.SetGuideLineNodes(HoldNodes);
+            JudgmentLine.AddNote(guideLine);
+            Instance.ActiveHolds.Add(guideLine);
+            return guideLine;
         }
 
         /// <summary>
@@ -114,14 +115,14 @@ namespace Dremu.Gameplay.Manager {
         /// <param name="ArrivalTime">到达时间</param>
         /// <param name="DragNodes">判定节点</param>
         /// <returns></returns>
-        public static Drag GetNewDrag( JudgmentLine JudgmentLine, float Position, float ArrivalTime, List<Drag.DragNode> DragNodes ) {
-            Drag drag = Instance.DragPool.GetObject();
-            drag.SetArrivalTime(ArrivalTime);
-            drag.SetPosition(Position);
-            drag.SetDragNodes(DragNodes);
-            JudgmentLine.AddNote(drag);
-            Instance.ActiveDrags.Add(drag);
-            return drag;
+        public static Hold GetNewDrag( JudgmentLine JudgmentLine, float Position, float ArrivalTime, List<Hold.HoldNode> DragNodes ) {
+            Hold hold = Instance.DragPool.GetObject();
+            hold.SetArrivalTime(ArrivalTime);
+            hold.SetPosition(Position);
+            hold.SetHoldNodes(DragNodes);
+            JudgmentLine.AddNote(hold);
+            Instance.ActiveDrags.Add(hold);
+            return hold;
         }
 
         /// <summary>
@@ -178,20 +179,20 @@ namespace Dremu.Gameplay.Manager {
                         Instance.SlidePool.ReturnObject(slide);
                     }
                 }
-                else if (note is Hold hold) {
-                    if (hold.ArrivalTime <= CurrentTime) {
-                        ScoreManager.AddPerfect();
-                        if (CurrentSecond - hold.NoteEffectTimer >= 0.2) {
-                            NoteEffectManager.GetNewNoteEffect(hold.transform.position);
-                            hold.NoteEffectTimer = CurrentSecond;
-                        }
-                        if (hold.IsEnd(CurrentTime)) {
-                            Instance.ActiveHolds.Remove(hold);
-                            Instance.HoldPool.ReturnObject(hold);
-                        }
-                    }
+                else if (note is GuideLine hold) {
+                    // if (hold.ArrivalTime <= CurrentTime) {
+                    //     ScoreManager.AddPerfect();
+                    //     if (CurrentSecond - hold.NoteEffectTimer >= 0.2) {
+                    //         NoteEffectManager.GetNewNoteEffect(hold.transform.position);
+                    //         hold.NoteEffectTimer = CurrentSecond;
+                    //     }
+                    //     if (hold.IsEnd(CurrentTime)) {
+                    //         Instance.ActiveHolds.Remove(hold);
+                    //         Instance.HoldPool.ReturnObject(hold);
+                    //     }
+                    // }
                 }
-                else if (note is Drag drag) {
+                else if (note is Hold drag) {
                     if (drag.ArrivalTime <= CurrentTime) {
                         ScoreManager.AddPerfect();
                         if (CurrentSecond - drag.NoteEffectTimer >= 0.2) {
